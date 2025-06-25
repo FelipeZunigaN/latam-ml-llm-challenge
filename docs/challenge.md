@@ -86,3 +86,27 @@ Therefore, Logistic Regression is preferred as it achieves comparable results wh
 ### ✅ Final Decision
 
 > Therefore **Logistic Regression** is selected as the final model because it offers comparable predictive performance with higher transparency, better explainability, and lower complexity — all critical aspects in real-world applications.
+
+
+# 🧠 `DelayModel`: ML Pipeline Class for Flight Delay Prediction
+
+The `DelayModel` class encapsulates the end-to-end logic for training and predicting flight delays using a `LogisticRegression` model. It is designed to be modular and reusable across different parts of the project.
+
+### 🔧 Features
+
+- Loads and saves the trained model using `joblib`.
+- Computes the target label (`delay > 15 minutes`) from timestamp columns.
+- Performs feature engineering (`min_diff` in minutes) and one-hot encoding.
+- Ensures consistent input shape with a predefined set of top features.
+- Trains a `LogisticRegression` model with class balancing.
+- Predicts using the pre-trained model.
+
+### 🧩 Key Methods
+
+| Method                 | Description                                                   |
+|------------------------|---------------------------------------------------------------|
+| `fit(X, y)`            | Trains the logistic regression model and saves it to disk.    |
+| `predict(X)`           | Returns predicted labels from the trained model.              |
+| `preprocess(df)`       | Applies feature engineering and encoding to raw input data.   |
+| `get_min_diff(df)`     | Computes the delay (in minutes) from timestamp columns.       |
+| `_save_model()` / `_load_model()` | Handles model persistence.                         |
