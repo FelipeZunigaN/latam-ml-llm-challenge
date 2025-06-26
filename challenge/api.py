@@ -39,7 +39,7 @@ async def post_predict(data: FlightsRequest) -> dict:
     
     model = DelayModel()
 
-    df = pd.DataFrame([flight.model_dump() for flight in data.flights])
+    df = pd.DataFrame([flight.dict() for flight in data.flights])
 
     features = model.preprocess(df)
 
