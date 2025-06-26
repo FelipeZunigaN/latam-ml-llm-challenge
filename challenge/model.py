@@ -100,12 +100,10 @@ class DelayModel:
         """
 
         data = data.copy()
-
-        # Feature engineering
-        data['min_diff']  = self.get_min_diff(data)
-
-        # Only compute target if in training mode
+        
         if target_column:
+            # Only compute target if in training mode
+            data['min_diff']  = self.get_min_diff(data)
             threshold_in_minutes = 15
             data[target_column] = np.where(data['min_diff'] > threshold_in_minutes, 1, 0)
 
