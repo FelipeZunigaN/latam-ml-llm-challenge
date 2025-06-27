@@ -127,3 +127,12 @@ This approach provides several benefits:
 - ✅ **Production-ready environment**: Ensures separation between development and production environments.
 
 This method emulates a real-world scenario where machine learning solutions need to be productionized and made available to external consumers through a scalable and reliable API.
+
+## CI/CD Integration
+
+A GitHub Actions-based CI/CD pipeline was implemented to ensure reliability and automation:
+
+- **Continuous Integration (CI)**: Validates that all code pushed or submitted through pull requests passes the model and API tests.
+- **Continuous Delivery (CD)**: Automatically builds the Docker image and deploys it to Cloud Run every time changes are merged into the `main` branch.
+
+This guarantees that the application is always up-to-date, tested, and delivered in a consistent and reproducible way.
