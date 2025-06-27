@@ -110,3 +110,20 @@ The `DelayModel` class encapsulates the end-to-end logic for training and predic
 | `preprocess(df)`       | Applies feature engineering and encoding to raw input data.   |
 | `get_min_diff(df)`     | Computes the delay (in minutes) from timestamp columns.       |
 | `_save_model()` / `_load_model()` | Handles model persistence.                         |
+
+# Model deployment to production
+
+The trained model was containerized and deployed to production using **Google Cloud Platform (GCP)**. The overall process included:
+
+- Packaging the API and model into a Docker image.  
+- Pushing the image to **Google Artifact Registry**, GCP's private container storage.  
+- Deploying the containerized application to **Cloud Run**, GCP’s serverless compute platform.
+
+This approach provides several benefits:
+
+- ✅ **Automatic scalability**: Cloud Run adjusts the number of instances based on incoming traffic.  
+- ✅ **Minimal infrastructure management**: No need to manage servers or orchestration.  
+- ✅ **Public accessibility**: The API is accessible via a public endpoint that can be consumed by other services.  
+- ✅ **Production-ready environment**: Ensures separation between development and production environments.
+
+This method emulates a real-world scenario where machine learning solutions need to be productionized and made available to external consumers through a scalable and reliable API.
